@@ -48,5 +48,5 @@ urlpatterns = [
 ]
 
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG: ## settings.DEBUG  seçili ise yani burası true ise..
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  ## görsel işlemleri için bu urlyi ekldeik

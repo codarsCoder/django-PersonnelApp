@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 # ! bunub için settings kısmına ,settings parçalara ayrılmışsaa base.py ye  # AUTH_USER_MODEL = 'users.MyUser'  eklenir. jangoya artık user tablosu içimn bunu kullan dedik
 # ? aynı işlemi  MyUser(AbstractUser) in bir üstü olan   MyUser(AbstractBaseUser) den de yaparız çok uzar !!!!
 # * 2- 2.yöntem olarak yeni bir tablo oluşturup oneToone olarak user tablosuyla ilişkilendiririz bu daha pratik olur. 
-# * Bu projede bu şekilde profile tablosu oluşturuldu 
+# * Bu projede bu şekilde profile tablosu oluşturuldu  TABLO USERLE İLGİLİ O YÜZDEN BURAYA YAZDIK
 
 
 # class MyUser(AbstractUser):
@@ -26,6 +26,9 @@ from django.contrib.auth.models import User
 
 
 
+    # MEDIA_URL = '/media/'
+    # MEDIA_ROOT = BASE_DIR / "pictures"
+# * GÖRSEL İŞLEMLER İÇİN YUKARIDAKİ KISIMLARI SETTİNGSE/YADA BASE/ EKLEYELİM
 # * 
 # * 
 # * 
@@ -35,7 +38,7 @@ from django.contrib.auth.models import User
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     display_name = models.CharField(max_length=30, blank=True, null=True)
-    avatar = models.ImageField(upload_to="pictures", default="avatar.png")
+    avatar = models.ImageField(upload_to="pictures", default="avatar.png") ## img lerin yükleneceği klasörü belirledik
     bio = models.TextField(blank=True, null=True)
     
     def __str__(self):
